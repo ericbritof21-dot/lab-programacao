@@ -1,3 +1,8 @@
+class SaldoInsuficienteError(Exception):
+    def __init__(self, saldo, valor):
+        super().__init__(f"saldo R$ {saldo:.2f} insuficiente para sacar R$ {valor:.2f}")
+
+
 def realizar_saque(saldo, valor_saque):
     if valor_saque <= 0:
         raise ValueError("O valor do saque deve ser positivo.")
@@ -6,7 +11,7 @@ def realizar_saque(saldo, valor_saque):
     return saldo - valor_saque
  
  
-def ex12():
+def ex77():
     saldo = 1000.0
     try:
         valor = float(input("Valor do saque: "))
@@ -17,5 +22,6 @@ def ex12():
         print(f"Valor inválido: {e}")
     else:
         print(f"Saque realizado! Novo saldo: R$ {saldo:.2f}")
- 
- 
+
+
+ex77()
